@@ -19,13 +19,6 @@ public class Logica {
 
         System.out.println("");
 
-        //Generamos un pequeño retraso previo a ir al menú principal.
-        try {
-            Thread.sleep(500);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
         return opcionRegreso.equalsIgnoreCase("si");
     }
 
@@ -39,16 +32,17 @@ public class Logica {
             ArrayList<Integer> listaNumerica = new ArrayList<Integer>();
 
             //Le solicitamos al usuario que ingrese un número.
-            System.out.println("Ingrese un número (al ingresar un número menor a cero saldrá): ");
+            System.out.println("Ingrese un número (al ingresar un número menor a cero se saldrá): ");
 
             do {
                 numero = sc.nextInt();
                 listaNumerica.add(numero);
             } while (numero != 0);
 
+            sc.nextLine();
+
             System.out.println("");
             System.out.println(listaNumerica);
-            System.out.println("");
 
             //Invocamos el metodo para regresar al menú principal.
             escape = regresarMenu();
@@ -72,6 +66,8 @@ public class Logica {
 
                 contador++;
             }
+
+            sc.nextLine();
 
             //Buscamos el elemento mayor y menor de la colección.
             double numMayor = Double.MIN_VALUE;
@@ -177,10 +173,13 @@ public class Logica {
             }
 
             System.out.println(valoresAleatorios);
+            System.out.println("");
 
             //Le solicitamos al usuario que ingrese un número entre 1 y 100.
             System.out.println("Ingrese un numero entre 1 y 100: ");
             int userNum = sc.nextInt();
+
+            sc.nextLine();
 
             System.out.println("");
 
@@ -218,6 +217,8 @@ public class Logica {
                 numerosIngresados.add(userNum);
                 contador++;
             }
+
+            sc.nextLine();
 
             System.out.println("");
 
@@ -286,6 +287,8 @@ public class Logica {
              //Le imprimimos al usuario el resultado de la búsqueda.
              String resultado = matriz.obtenerValor(buscarFila, buscarColumna);
              System.out.println("Resultado: " + resultado);
+
+             sc.nextLine();
 
              //Invocamos el metodo para regresar al menú principal.
              escape = regresarMenu();
