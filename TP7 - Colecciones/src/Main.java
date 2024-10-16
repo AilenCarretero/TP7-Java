@@ -1,12 +1,11 @@
 import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) {
-        menu();
-    }
+    static Scanner sc = new Scanner(System.in);
+
+    public static void main(String[] args) { menu(); }
 
     public static void menu() {
-        Scanner sc = new Scanner(System.in);
         boolean quit = false;
 
         //Generamos el menú principal.

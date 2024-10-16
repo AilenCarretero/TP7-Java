@@ -5,10 +5,11 @@ import java.util.Collections;
 
 public class Logica {
 
-    public static boolean regresarMenu() {
-        //Creamos un método para invocar la salida al menú principal.
-        Scanner sc = new Scanner(System.in);
+    static Scanner sc = new Scanner(System.in);
+    static Random rd = new Random();
 
+    public static boolean regresarMenu() {
+        //Creamos un metodo para invocar la salida al menú principal.
         //Le solicitamos al usuario que ingrese la opción deseada.
         System.out.println("" +
                 "\n¿Desea regresar al menú principal?" +
@@ -30,7 +31,6 @@ public class Logica {
 
     public static void opcion1() {
         //Punto 1.
-        Scanner sc = new Scanner(System.in);
         boolean escape = false;
         int numero;
 
@@ -39,8 +39,7 @@ public class Logica {
             ArrayList<Integer> listaNumerica = new ArrayList<Integer>();
 
             //Le solicitamos al usuario que ingrese un número.
-            System.out.println("Ingrese un número: ");
-
+            System.out.println("Ingrese un número (al ingresar un número menor a cero saldrá): ");
 
             do {
                 numero = sc.nextInt();
@@ -48,9 +47,7 @@ public class Logica {
             } while (numero != 0);
 
             System.out.println("");
-
             System.out.println(listaNumerica);
-
             System.out.println("");
 
             //Invocamos el metodo para regresar al menú principal.
@@ -60,7 +57,6 @@ public class Logica {
 
     public static void opcion2() {
         //Punto 2
-        Scanner sc = new Scanner(System.in);
         boolean escape = false;
 
         while (!escape) {
@@ -110,7 +106,6 @@ public class Logica {
     }
 
     public static void opcion3() {
-        Random rd = new Random();
         boolean escape = false;
 
         while (!escape) {
@@ -128,7 +123,6 @@ public class Logica {
                 }
             }
 
-
             //Calculamos el promedio.
             int sumaPromedio = 0;
 
@@ -137,7 +131,6 @@ public class Logica {
             }
 
             double promedio = sumaPromedio / numerosPares.size();
-
 
             //Contamos cuantos números son mayores, iguales y menores que el númeroo promedio.
             int igualPromedio = 0;
@@ -153,7 +146,6 @@ public class Logica {
                     mayorPromedio++;
                 }
             }
-
 
             //Imprimimos los resultados al usuario.
             System.out.println(" === Lista de los decimales ingresados === " +
@@ -171,8 +163,6 @@ public class Logica {
     }
 
     public static void opcion4() {
-        Scanner sc = new Scanner(System.in);
-        Random rd = new Random();
         boolean escape = false;
 
         while (!escape) {
@@ -214,7 +204,6 @@ public class Logica {
     }
 
     public static void opcion5() {
-        Scanner sc = new Scanner(System.in);
         boolean escape = false;
 
         while (!escape) {
@@ -249,58 +238,57 @@ public class Logica {
     }
 
     public static void opcion6() {
-     Scanner sc = new Scanner(System.in);
-     boolean escape = false;
+        boolean escape = false;
 
-     while (!escape) {
-         Matriz matriz = new Matriz();
+        while (!escape) {
+            Matriz matriz = new Matriz();
 
-         while (true) {
-             //Le solicitamos al usuario el ingreso de un valor.
-             System.out.println("Ingrese el valor de la celda o escriba 'fin' para salir: ");
-             String valor = sc.nextLine();
+            while (true) {
+                //Le solicitamos al usuario el ingreso de un valor.
+                System.out.println("Ingrese el valor de la celda o escriba 'fin' para salir: ");
+                String valor = sc.nextLine();
 
-             //Comprobamos si el usuario quiere finalizar el programa.
-             if (valor.equalsIgnoreCase("fin")) {
-                 break;
-             }
+                //Comprobamos si el usuario quiere finalizar el programa.
+                if (valor.equalsIgnoreCase("fin")) {
+                    break;
+                }
 
-             System.out.println("");
+                System.out.println("");
 
-             //Le solicitamos al usuario el ingreso de la fila.
-             System.out.print("Ingrese la fila: ");
-             int fila = sc.nextInt();
+                 //Le solicitamos al usuario el ingreso de la fila.
+                 System.out.print("Ingrese la fila: ");
+                 int fila = sc.nextInt();
 
-             //Le solicitamos al usuario el ingreso de la columna.
-             System.out.print("Ingrese la columna: ");
-             int columna = sc.nextInt();
+                 //Le solicitamos al usuario el ingreso de la columna.
+                 System.out.print("Ingrese la columna: ");
+                 int columna = sc.nextInt();
 
-             System.out.println("");
+                 System.out.println("");
 
-             sc.nextLine();
+                 sc.nextLine();
 
-             matriz.agregarCelda(fila, columna, valor);
-         }
+                 matriz.agregarCelda(fila, columna, valor);
+            }
 
-         //Imprimimos las celdas que ya han sido almacenadas.
-         System.out.println("\nTodas las celdas almacenadas: " +
-                 "\n");
-         matriz.mostrarCeldas();
+             //Imprimimos las celdas que ya han sido almacenadas.
+             System.out.println("\nTodas las celdas almacenadas: " +
+                     "\n");
+             matriz.mostrarCeldas();
 
-         //Le solicitamos al usuario la fila de la celda.
-         System.out.print("\nIngrese la fila a buscar: ");
-         int buscarFila = sc.nextInt();
+             //Le solicitamos al usuario la fila de la celda.
+             System.out.print("\nIngrese la fila a buscar: ");
+             int buscarFila = sc.nextInt();
 
-         //Le solicitamos al usuario la columna de la celda.
-         System.out.print("Ingrese la columna a buscar: ");
-         int buscarColumna = sc.nextInt();
+             //Le solicitamos al usuario la columna de la celda.
+             System.out.print("Ingrese la columna a buscar: ");
+             int buscarColumna = sc.nextInt();
 
-         //Le imprimimos al usuario el resultado de la búsqueda.
-         String resultado = matriz.obtenerValor(buscarFila, buscarColumna);
-         System.out.println("Resultado: " + resultado);
+             //Le imprimimos al usuario el resultado de la búsqueda.
+             String resultado = matriz.obtenerValor(buscarFila, buscarColumna);
+             System.out.println("Resultado: " + resultado);
 
-         //Invocamos el metodo para regresar al menú principal.
-         escape = regresarMenu();
-     }
+             //Invocamos el metodo para regresar al menú principal.
+             escape = regresarMenu();
+        }
     }
 }
