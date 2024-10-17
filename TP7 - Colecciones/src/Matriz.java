@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 
 public class Matriz {
+
     ArrayList<Celda> matrizCuadrada = new ArrayList<Celda>();
 
     //Generamos un metodo para ingresar una celda a la lista.
@@ -19,8 +20,8 @@ public class Matriz {
     //Generamos un metodo para buscar una celda mediante la fila y la columna.
     public String obtenerValor(int fila, int columna) {
         for (Celda celda : matrizCuadrada) {
-            if (celda.fila == fila && celda.columna == columna) {
-                return celda.valor;
+            if (celda.getFila() == fila && celda.getColumna() == columna) {
+                return celda.getValor();
             }
         }
         return "La celda de la fila y columna ingresada no ha sido asignada.";
